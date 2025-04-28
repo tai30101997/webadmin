@@ -1,0 +1,9 @@
+{
+  "name": "react_apollo",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/react_apollo/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project react_apollo --web",
+  "targets": {}
+}

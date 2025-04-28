@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  admin-app:
+    # Build the Docker image from the Dockerfile
+    build:
+      context: .
+      dockerfile: ./docker/admin.Dockerfile
+    # Define the port to map from the container to the host
+    ports:
+      - "3000:3000"
+    # Set environment variables if needed (for example, to set the NODE_ENV)
+    environment:
+      - NODE_ENV=production
+    # Ensure the container restarts automatically if it stops
+    restart: always
+    # Specify any volume mounts if needed (optional)
+    volumes:
+      - .:/usr/src/app
+    # Optionally specify the networks to use (defaults to bridge network)
+    networks:
+      - app-network
+# Define a network if needed (optional)
+networks:
+  app-network:
+    driver: bridge
