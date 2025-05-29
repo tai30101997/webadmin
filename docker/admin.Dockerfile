@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm install --legacy-peer-deps
+RUN npm cache clean --force && npm install --legacy-peer-deps
 
 # Step 4: Copy the entire Nx monorepo to the container
 COPY . .
