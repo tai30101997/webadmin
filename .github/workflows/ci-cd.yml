@@ -20,6 +20,10 @@
           with:
             node-version: 20
             cache: 'npm'
+        - name: Clean up node_modules and cache
+          run: |
+            rm -rf node_modules
+            npm cache clean --force
         - name: Install deps
           run: npm config set legacy-peer-deps true && npm install
 
