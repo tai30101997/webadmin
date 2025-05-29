@@ -20,13 +20,14 @@
           with:
             node-version: 20
             cache: 'npm'
-        
+        - name: Clean up node_modules and cache
+          run: |
+            rm -rf node_modules
+            npm cache clean --force
         - name: Install deps
-          run: npm install --legacy-peer-deps
-
+          run:  npm install --legacy-peer-deps
         - name: Build app
-          run: npx nx build admin
-
+          run: npx nx build web
         - name: Build Docker image
           run: docker build -f docker/admin.Dockerfile -t admin .
         - name: Login to Docker Hub
